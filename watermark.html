@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style type="text/css">
+html, body { height: 100%; overflow: hidden; }
+body {
+    /* Use SVG if available for crisp rendering */
+    background: url(images/logo_light.png) no-repeat center;
+    background-size: 30%;
+    background-blend-mode: soft-light; /* keeps background subtle on light */
+}
+html:not(.dark-mode) body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, .85);
+}
+html.dark-mode > body {
+    background-image: url(images/logo_dark.png);
+  background-color: #0b1120;
+  background-blend-mode: soft-light;
+}
+</style>
+<script>
+  try {
+    if (document.cookie.indexOf('colorMode=dark') > -1
+      || (document.cookie.indexOf('colorMode=light') === -1 && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.className += ' dark-mode';
+    }
+  } catch (e) { }
+</script>
+</head>
+<body></body>
+</html>

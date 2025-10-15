@@ -1,0 +1,67 @@
+<style>
+    .bg-body {
+        background-color: #f8f9fa;
+    }
+
+    .show-light {
+        display: block !important;
+    }
+
+    .show-dark {
+        display: none !important;
+    }
+
+    html.dark-mode .show-light {
+        display: none !important;
+    }
+
+    html.dark-mode .show-dark {
+        display: block !important;
+    }
+
+    html.dark-mode .bg-body {
+        background-color: #090e1b !important;
+    }
+</style>
+
+<roundcube:include file="includes/layout.html" />
+
+<h1 class="voice"><roundcube:object name="productname" /> <roundcube:label name="login" /></h1>
+
+<div id="layout-content" class="selected no-navbar" role="main">
+    <div class="d-md-flex justify-content-between">
+        <div class="col-12 col-md-7 bg-body d-none d-md-flex align-items-center justify-content-center vh-100">
+            <roundcube:object name="logo" src="/images/mail-illustration.svg" class="img-fluid" style="width: 30%; height: 30%;" />
+        </div>
+        <div class="col-12 col-md-5 d-flex align-items-center vh-100">
+            <div class="w-100 p-3 text-left">
+                <div style="padding-left: 30px; padding-right: 30px;">
+                    <div class="d-flex">
+                        <div style="border-radius: 20px;">
+                            <roundcube:object name="logo" class="show-light" src="/images/logo_light.png" id="logo" alt="Logo" style="top: 0 !important;" width="80px" />
+                            <roundcube:object name="logo" class="show-dark" src="/images/logo_dark.png" id="logo" alt="Logo" style="top: 0 !important;" width="80px" />
+                        </div>
+                    </div>
+                    <h4 class="mt-5" style="font-weight: bold;">
+                        Hi 👋
+                    </h4>
+                    <h4 class="mt-1" style="font-weight: bold;">
+                        Welcome to <roundcube:object name="productname" />!
+                    </h4>
+                </div>
+                <roundcube:form id="login-form" name="login-form" method="post" class="propform w-full p-3" style="max-width: 100% !important; top: 0 !important; left: 0 !important; box-shadow: none !important; background: transparent !important;">
+                    <roundcube:object name="loginform" form="login-form" size="40" submit=true class="form-control" />
+                    <div id="login-footer" role="contentinfo">
+                        Copyright &copy; 2025 <a href="https://fahli.dev" target="_blank" rel="noopener noreferrer">Fahli Saputra</a>. All rights reserved.
+                    </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<noscript>
+	<p class="noscriptwarning"><roundcube:label name="noscriptwarning" /></p>
+</noscript>
+
+<roundcube:include file="includes/footer.html" />
